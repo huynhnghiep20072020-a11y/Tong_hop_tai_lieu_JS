@@ -1,0 +1,219 @@
+:root {
+    /* Hệ màu */
+    --primary-color: #3b82f6; /* Xanh dương */
+    --primary-hover: #2563eb;
+    --danger-color: #ef4444; /* Đỏ */
+    --danger-hover: #dc2626;
+    --success-color: #22c55e; /* Xanh lá */
+    --active-color: #f97316; /* Cam */
+    --bg-body: #f3f4f6; /* Xám nhạt nền */
+    --bg-card: #ffffff; /* Trắng nền card */
+    --text-main: #111827; /* Đen chữ */
+    --text-sub: #6b7280; /* Xám chữ phụ */
+    --border-color: #e5e7eb; /* Xám nhạt viền */
+    
+    /* Khoảng cách & Bo góc */
+    --radius-md: 8px;
+    --radius-sm: 4px;
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Sử dụng phông chữ Inter hiện đại */
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Card chính chứa ứng dụng */
+.todo-app-card {
+    background-color: var(--bg-card);
+    width: 100%;
+    max-width: 700px;
+    padding: 40px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: var(--text-main);
+}
+
+/* Kiểu chung cho các input/select */
+.ui-input-text, .ui-input-search, .ui-select, .ui-input-date, .ui-select-sort {
+    padding: 12px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    color: var(--text-main);
+    transition: border-color 0.2s;
+    width: 100%;
+}
+
+.ui-input-text:focus, .ui-input-search:focus, .ui-select:focus, .ui-input-date:focus, .ui-select-sort:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Khu vực nhập liệu (row đầu tiên) */
+.ui-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Cho phép xuống dòng trên màn hình nhỏ */
+}
+
+.ui-input-text {
+    flex: 2; /* Chiếm nhiều diện tích hơn */
+    min-width: 250px;
+}
+
+.input-meta {
+    display: flex;
+    gap: 12px;
+    flex: 1;
+    min-width: 250px;
+}
+
+/* Khu vực điều khiển (row thứ hai) */
+.ui-group-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.ui-input-search {
+    flex: 1;
+    min-width: 200px;
+}
+
+.ui-select-sort {
+    width: auto;
+    min-width: 180px;
+}
+
+/* Nhóm nút lọc trạng thái */
+.filter-group {
+    display: flex;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    overflow: hidden; /* Bo góc cho các nút con */
+}
+
+.filter-btn {
+    padding: 10px 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    transition: background-color 0.2s;
+    border-right: 1px solid var(--border-color);
+}
+
+.filter-btn:last-child {
+    border-right: none;
+}
+
+.filter-btn:hover {
+    background-color: #f9fafb;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+/* Các loại nút bấm */
+.btn-primary, .btn-danger {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap; /* Không cho chữ xuống dòng */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: var(--danger-hover);
+}
+
+/* Danh sách công việc (giữ nguyên logic hiển thị) */
+ul#todo-list {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+/* Thông báo trạng thái trống */
+.empty-state-message {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-sub);
+    font-style: italic;
+    border: 1px dashed var(--border-color);
+    border-radius: var(--radius-sm);
+    margin-bottom: 25px;
+}
+
+/* Phần chân trang: Thống kê & Nút xóa */
+.footer-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 25px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.stats-text {
+    font-size: 0.95rem;
+    color: var(--text-sub);
+}
+
+.stat-number {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.stat-success {
+    color: var(--success-color);
+}
+
+.stat-active {
+    color: var(--active-color);
+}

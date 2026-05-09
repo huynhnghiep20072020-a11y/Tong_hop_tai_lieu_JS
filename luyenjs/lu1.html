@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách sản phẩm</title>
+    <style>
+        .container {
+            border: 1px solid black;
+            height: 100vh;
+        }
+        .book-1 {
+            border: 1px solid black;
+            display: inline-block;
+            width: 48%;
+        }
+        .book-2 {
+            border: 1px solid black;
+            display: inline-block;
+            width: 48%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="book-1">
+            <img width="215px" height="215px" src="https://cdn1.fahasa.com/media/catalog/product/a/i/ai-tang-luong-cho-ban-img1-ttiki_1.jpg" alt="">
+            <div>169.000<sup>đ</sup></div>
+            <p>Nguyễn Quốc Tuấn</p>
+            <p>Ai Tăng Lương Cho Bạn? 
+                3 Bí Quyết Đơn Giản Để Thăng Tiến 
+                Và Hạnh Phúc...</p>
+                <button onclick="viewDetails()">
+                    xem chi tiết
+                </button>
+        </div>
+        <div class="book-2">
+            <img width="215px" height="215px" src="https://cdn1.fahasa.com/media/catalog/product/b/_/b_a-h_i-_c_-gi_c-m_-suy-ng_m.jpg" alt="">
+            <div>266.800<sup>đ</sup></div>
+            <p>Carl Gustav Jung</p>
+            <p>Sách Hồi Ức, Giấc Mơ, 
+                Suy Ngẫm - Hành Trình Vào Nội Tâm 
+                Của Carl Jung - Nơi...</p>
+                <button onclick="viewDetails()">
+                    xem chi tiết
+                </button>
+        </div>
+    </div>
+    <script>function viewBookDetail(currentViewBookBtn){
+let currentBookElement = currentViewBookBtn.parentElement;
+console.log(currentBookElement);
+let currentImgUrl = currentBookElement.firstElementChild.src;
+console.log(currentImgUrl);
+let currentPrice = currentBookElement.children[1].textContent;
+console.log(currentPrice);
+let currentBookInfo={
+imgUrl: currentImgUrl,
+price: currentPrice,
+console.log(currentBookInfo);
+}</script>
+     
+</body>
+</html>

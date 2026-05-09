@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đếm Ký Tự Trong Chuỗi</title>
+</head>
+<body>
+    <input type="text" id="strInput" placeholder="Nhập chuỗi (vd: hello world)">
+    <button id="countBtn">Đếm</button>
+    <ul id="resultList"></ul>
+
+    <script>
+        const strInput = document.getElementById('strInput');
+        const countBtn = document.getElementById('countBtn');
+        const resultList = document.getElementById('resultList');
+
+        countBtn.addEventListener('click', function() {
+            let str = strInput.value;
+            
+            str = str.toLowerCase().replace(/\s/g, '');
+
+            let result = {};
+
+            for (let char of str) {
+                if (result[char]) {
+                    result[char]++;
+                } else {
+                    result[char] = 1;
+                }
+            }
+
+            resultList.innerHTML = '';
+            
+            for (let key in result) {
+                const li = document.createElement('li');
+                li.innerText = `${key}: ${result[key]}`;
+                resultList.appendChild(li);
+            }
+        });
+    </script>
+</body>
+</html>

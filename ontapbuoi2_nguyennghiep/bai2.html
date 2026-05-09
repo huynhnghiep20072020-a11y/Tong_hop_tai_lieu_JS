@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm Tra Số Chẵn Lẻ</title>
+</head>
+<body>
+    <input type="number" id="numberInput" placeholder="Nhập số tại đây...">
+    <button id="checkBtn">Kiểm tra</button>
+    <p id="resultDisplay"></p>
+
+    <script>
+        const inputElement = document.getElementById('numberInput');
+        const buttonElement = document.getElementById('checkBtn');
+        const displayElement = document.getElementById('resultDisplay');
+
+        buttonElement.addEventListener('click', function() {
+            const rawValue = inputElement.value;
+
+            if (rawValue.trim() === '') {
+                displayElement.innerText = "Vui lòng nhập một số!";
+                return;
+            }
+
+            const n = parseInt(rawValue);
+
+            if (n % 2 === 0) {
+                displayElement.innerText = "Số chẵn";
+            } else {
+                displayElement.innerText = "Số lẻ";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Công Việc - UI Nâng Cấp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ql2.css">
+</head>
+<body>
+    <div class="todo-app-card">
+        <h1>Quản Lý Công Việc</h1>
+
+        <div class="input-section ui-group">
+            <input type="text" id="todo-input" placeholder="Tên công việc (bắt buộc)..." class="ui-input-text">
+            <div class="input-meta">
+                <select id="priority-input" class="ui-select">
+                    <option value="Low">Thấp</option>
+                    <option value="Medium" selected>Trung bình</option>
+                    <option value="High">Cao</option>
+                </select>
+                <input type="date" id="date-input" class="ui-input-date">
+            </div>
+            <button id="add-btn" class="btn-primary">Thêm</button>
+        </div>
+
+        <div class="control-section ui-group-row">
+            <input type="text" id="search-input" placeholder="Tìm kiếm công việc..." class="ui-input-search">
+            
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">Tất cả</button>
+                <button class="filter-btn" data-filter="active">Chưa xong</button>
+                <button class="filter-btn" data-filter="completed">Đã xong</button>
+            </div>
+
+            <select id="sort-select" class="ui-select-sort">
+                <option value="newest">Mới nhất</option>
+                <option value="priority">Ưu tiên: Cao -> Thấp</option>
+                <option value="alphabet">Bảng chữ cái (A-Z)</option>
+                <option value="due">Hạn chót gần nhất</option>
+            </select>
+        </div>
+
+        <ul id="todo-list"></ul>
+        <div id="empty-state" class="empty-state-message">Bạn chưa có công việc nào!</div>
+
+        <div class="footer-section">
+            <div class="stats-text">
+                Tổng: <span id="stat-total" class="stat-number">0</span> | 
+                Đã xong: <span id="stat-done" class="stat-number stat-success">0</span> | 
+                Chưa xong: <span id="stat-active" class="stat-number stat-active">0</span>
+            </div>
+            <button id="clear-completed" class="btn-danger">Xóa mục đã hoàn thành</button>
+        </div>
+    </div>
+    <script>  </script>
+</body>
+</html>

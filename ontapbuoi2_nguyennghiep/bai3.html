@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Tổng Mảng</title>
+</head>
+<body>
+    <input type="text" id="arrayInput" placeholder="Nhập số, cách nhau bằng dấu phẩy (vd: 1,2,3)">
+    <button id="calcBtn">Tính tổng</button>
+    <p id="resultDisplay"></p>
+
+    <script>
+        const arr = [1, 2, 3, 4, 5];
+
+        let sumBasic = 0;
+        arr.forEach(function(num) {
+            sumBasic += num;
+        });
+        console.log("Tổng (cơ bản):", sumBasic);
+
+        const sumAdvanced = arr.reduce((total, current) => total + current, 0);
+        console.log("Tổng (nâng cao):", sumAdvanced);
+
+        const inputElement = document.getElementById('arrayInput');
+        const buttonElement = document.getElementById('calcBtn');
+        const displayElement = document.getElementById('resultDisplay');
+
+        buttonElement.addEventListener('click', function() {
+            const rawValue = inputElement.value;
+            
+            if (rawValue.trim() === '') {
+                displayElement.innerText = "Vui lòng nhập giá trị!";
+                return;
+            }
+
+            const strArray = rawValue.split(',');
+            const numArr = strArray.map(item => Number(item.trim()));
+
+            const totalSum = numArr.reduce((total, current) => total + current, 0);
+
+            displayElement.innerText = "Tổng các số vừa nhập: " + totalSum;
+        });
+    </script>
+</body>
+</html>
