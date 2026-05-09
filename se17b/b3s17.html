@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công việc chuẩn bị Tết</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .container {
+            width: 450px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background-color: #d32f2f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .header h2 {
+            margin: 0 0 5px 0;
+            font-size: 22px;
+        }
+        .header p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .input-section {
+            background-color: #fffde7;
+            padding: 15px 20px;
+            display: flex;
+            gap: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        #taskInput {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+        }
+        #addBtn {
+            background-color: #f57c00;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .todo-list {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .todo-item {
+            padding: 15px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            user-select: none;
+            font-size: 15px;
+        }
+        .todo-item.pending {
+            background-color: #fff9e6;
+            border: 1px solid #ffcc80;
+            color: #555;
+        }
+        .todo-item.completed {
+            background-color: #e8f5e9;
+            border: 1px solid #81c784;
+            color: #2e7d32;
+        }
+        .icon {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .pending .icon {
+            color: #ffb74d;
+        }
+        .completed .icon {
+            color: #4caf50;
+        }
+        .footer {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h2>Công việc chuẩn bị Tết</h2>
+            <p>Thêm công việc mới & đánh dấu hoàn thành</p>
+        </div>
+
+        <div class="input-section">
+            <input type="text" id="taskInput" placeholder="Nhập công việc mới...">
+            <button id="addBtn">Thêm</button>
+        </div>
+        
+        <div class="todo-list" id="todo-list"></div>
+
+        <div class="footer">
+            Mọi thay đổi (thêm / đánh dấu) được lưu tự động vào localStorage • Refresh để kiểm tra
+        </div>
+    </div>
+
+    <script src="b3s17.js"></script>
+</body>
+</html>

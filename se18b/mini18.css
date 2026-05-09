@@ -1,0 +1,323 @@
+/* ================= CSS RESET & BIẾN TOÀN CỤC ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root {
+    --primary-blue: #1976D2; /* Màu chủ đạo Header/Bảng */
+    --light-blue: #E3F2FD;   /* Nền Form/Footer */
+    --gray-bg: #F5F5F5;      /* Nền Filter */
+    --border-color: #E0E0E0; /* Màu viền */
+    
+    /* Màu trạng thái */
+    --success: #2e7d32;      /* Xanh lá cho Giá */
+    --warning: #ED6C02;      /* Cam cho nút Sửa */
+    --danger: #d32f2f;       /* Đỏ cho cảnh báo/Xóa */
+    --text-main: #333333;
+    
+    --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    --radius: 12px;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: var(--text-main);
+    padding: 20px;
+}
+
+/* ================= CONTAINER CHÍNH ================= */
+.main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden; /* Cắt góc tròn hoàn hảo */
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Khoảng cách xử lý bằng padding bên trong các section */
+}
+
+/* ================= HEADER ================= */
+.app-header {
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.app-header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.app-header p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* ================= FORM SECTION ================= */
+.form-section {
+    background-color: var(--light-blue);
+    padding: 30px;
+}
+
+.section-title {
+    color: var(--primary-blue);
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Desktop 2 cột */
+    gap: 20px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1; /* Chiếm toàn bộ số cột */
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #424242;
+}
+
+.required {
+    color: var(--danger);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #BBDEFB; /* Xanh nhạt */
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 24px;
+}
+
+/* ================= BUTTONS ================= */
+.btn {
+    padding: 12px 32px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.btn-primary { background-color: var(--primary-blue); color: white; }
+.btn-secondary { background-color: #757575; color: white; }
+.btn-danger { background-color: var(--danger); color: white; margin-left: auto; }
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.btn-warning { background-color: var(--warning); color: white; }
+.hidden { display: none !important; }
+
+/* ================= SEARCH & FILTER ================= */
+.filter-section {
+    background-color: var(--gray-bg);
+    padding: 20px 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.search-wrapper {
+    flex: 2; /* Chiếm 2/3 */
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper i {
+    position: absolute;
+    left: 16px;
+    color: #757575;
+}
+
+.search-wrapper input {
+    padding-left: 45px;
+    border-color: var(--border-color);
+}
+
+.filter-wrapper {
+    flex: 1; /* Chiếm 1/3 */
+}
+
+.filter-wrapper select {
+    border-color: var(--border-color);
+    cursor: pointer;
+}
+
+/* ================= TABLE SECTION ================= */
+.table-section {
+    padding: 30px;
+    background: #ffffff;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+thead {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+}
+
+td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+tbody tr:hover {
+    background-color: #F8F9FA;
+}
+
+/* Trạng thái dữ liệu trong bảng */
+.price-text {
+    color: var(--success);
+    font-weight: bold;
+}
+
+.qty-danger {
+    color: var(--danger);
+    font-weight: bold;
+}
+
+.desc-text {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #757575;
+    display: none; /* JS sẽ điều khiển */
+}
+
+.empty-state i {
+    font-size: 60px;
+    color: #BDBDBD;
+    margin-bottom: 15px;
+}
+
+/* ================= FOOTER STATS ================= */
+.app-footer {
+    background-color: var(--light-blue);
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #BBDEFB;
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.stat-box p {
+    color: #424242;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.stat-box h3 {
+    color: var(--primary-blue);
+    font-size: 28px;
+    font-weight: 800;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet (768px - 1023px) */
+@media screen and (max-width: 1023px) {
+    .filter-section {
+        flex-direction: column; /* Search và filter thành 1 cột */
+    }
+}
+
+/* Mobile (≤ 767px) */
+@media screen and (max-width: 767px) {
+    .main-container {
+        border-radius: 10px;
+    }
+    
+    .app-header { padding: 30px 15px; }
+    .app-header h1 { font-size: 26px; }
+    
+    .form-grid { grid-template-columns: 1fr; /* Form 1 cột dọc */ }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .btn-danger { margin-left: 0; width: 100%; }
+    
+    .app-footer {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Ẩn bớt cột trong bảng để tránh trượt ngang quá dài */
+    .col-desc { display: none; }
+    td .desc-text { display: none; }
+}

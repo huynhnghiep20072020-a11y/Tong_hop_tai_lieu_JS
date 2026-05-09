@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Sản Phẩm Tết</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: 0 auto; }
+        .product-item { margin-bottom: 10px; padding: 5px 0; border-bottom: 1px dashed #ccc; }
+        button { margin-left: 10px; cursor: pointer; padding: 3px 8px; }
+        input { margin-bottom: 10px; padding: 5px; margin-right: 5px; }
+        .sort-controls { margin-bottom: 20px; }
+        #search-input { width: 100%; box-sizing: border-box; margin-bottom: 15px; }
+        form { margin-top: 20px; border-top: 2px solid #333; padding-top: 20px; }
+    </style>
+</head>
+<body>
+ <script src="b6s14.js"></script>
+    <h1>Danh Sách Sản Phẩm Chợ Tết</h1>
+
+    <input type="text" id="search-input" placeholder="Tìm sản phẩm...">
+
+    <div class="sort-controls">
+        <button id="sort-asc">Sắp xếp giá: Thấp -> Cao</button>
+        <button id="sort-desc">Sắp xếp giá: Cao -> Thấp</button>
+    </div>
+
+    <ul id="product-list">
+    </ul>
+
+    <form id="product-form">
+        <input type="text" id="product-name" placeholder="Tên sản phẩm" required>
+        <input type="number" id="product-price" placeholder="Giá (VNĐ)" required>
+        <button type="submit">Thêm Sản Phẩm</button>
+    </form>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
